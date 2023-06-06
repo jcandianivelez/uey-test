@@ -1,0 +1,14 @@
+## Como correr el proyecto el server
+
+1. cd grafbase
+2. npx grafbase dev
+
+## Como correr el client
+
+1. cd client
+2. npm install
+3. npm run dev
+4. En caso de problemas con la instalación de dependencias:
+- eliminar el package-lock
+- eliminar la carpeta node_modules
+- reinstalar dependencias con el comando: npm install --force --legacy-peer-deps 

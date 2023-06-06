@@ -1,0 +1,65 @@
+enum RentalPeriod {
+    HOUR
+    NIGHT
+}
+
+enum ProductType {
+    SIMPLE
+    RENTAL
+    EVENT_HALL
+}
+
+type Category @model {
+    name: String! @unique
+    description: String
+    image: URL
+    slug: String! @unique
+    public: Boolean @default(value: false)
+    items: [Item]
+}
+
+type Item @model {
+    name: String! @unique
+    description: String
+    category: Category
+    type: ProductType!
+    supplier: Supplier!
+    image: URL
+    price: Float!
+    stock: Int
+    location: String
+    orders: [LineItem]
+}
+
+type Customer @model {
+    name: String!
+    email: String! @unique
+    phone: String
+    address: String
+    orders: [Order]
+}
+
+type Supplier @model {
+    name: String!
+    email: String! @unique
+    phone: String
+    address: String
+    orders: [Order]
+    items: [Item]
+}
+
+type Order @model {
+    customer: Customer!
+    supplier: Supplier!
+    lineItems: [LineItem]
+}
+
+type LineItem @model {
+    order: Order!
+    item: Item!
+    quantity: Int!
+    total: Float!
+    rentalPeriod: RentalPeriod
+    rentalStart: DateTime
+    rentalEnd: DateTime
+}
