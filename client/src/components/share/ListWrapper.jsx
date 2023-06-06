@@ -4,8 +4,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export const ListWrapper = ({children}) => {
 
-  console.log(children);
-
     const handleScroll = (scrollOffset) => {
         if ( scrollOffset === 0 ) {
             return;

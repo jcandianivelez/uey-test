@@ -5,8 +5,6 @@ const CustomBreadcrumbs = ({ name }) => {
     const { pathname } = useLocation();
     const pathnames = pathname?.split("/").filter((x) => x);
 
-    console.log(pathname);
-
     return (
         <Breadcrumbs aria-label="breadcrumb">
             <Link underline="hover" color="inherit" href="/">

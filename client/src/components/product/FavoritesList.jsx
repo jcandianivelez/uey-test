@@ -18,8 +18,6 @@ export const FavoritesList = ({
         }, []
     );
 
-    console.log(products);
-
     return (
         <Grid
             container

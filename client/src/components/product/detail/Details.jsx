@@ -25,9 +25,11 @@ export const Details = ({
     const shouldDisableDate = (date) => {
         const dateFormatted = moment(date).format('YYYY-MM-DD');
 
-        console.log({startDates, endDates, dateFormatted});
-
-        return startDates?.includes(dateFormatted) || endDates?.includes(dateFormatted);
+        return (
+            startDates?.includes(dateFormatted) 
+            || endDates?.includes(dateFormatted)
+            || moment(date).isSameOrBefore(moment().format('YYYY-MM-DD'))
+        );
     }
 
     return (
